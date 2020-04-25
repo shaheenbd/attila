@@ -1,0 +1,349 @@
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+
+body.dark-mode {
+    background: #222426;
+    color: #e1e3e6
+}
+
+.dark-mode .post-content h1,
+.dark-mode .post-content h2,
+.dark-mode .post-content h3,
+.dark-mode .post-content h4,
+.dark-mode .post-content h5,
+.dark-mode .post-content h6 {
+        color: #FFF
+}
+
+.dark-mode .post-content hr {
+    background: #3b3d40
+}
+
+.dark-mode .post-content b,
+.dark-mode .post-content strong {
+        color: #c4c7cc
+}
+
+.dark-mode .post-content code,
+.dark-mode .post-content tt {
+    background: #222426;
+    border-color: #3b3d40
+}
+
+.dark-mode .post-content pre {
+        background: #222426;
+        border-color: #3b3d40
+}
+
+.dark-mode .post-content pre .lines {
+    background: #222426;
+    border-color: #3b3d40
+}
+
+.dark-mode .post-content kbd {
+    background: #222426;
+    border-color: #3b3d40
+}
+
+.dark-mode .post-content table {
+    border-color: #3b3d40;
+    background: #222426
+}
+
+.dark-mode .post-content table td,
+.dark-mode .post-content table th {
+    border-color: #3b3d40
+}
+
+.dark-mode .post-content figure figcaption:after {
+    background: #3b3d40
+}
+
+.dark-mode .post-content figure figcaption a {
+    box-shadow: inset 0 -1px 0 #3b3d40
+}
+
+.dark-mode .post-content figure figcaption a:focus,
+.dark-mode .post-content figure figcaption a:hover {
+    box-shadow: inset 0 -2px 0 #3b3d40
+}
+
+.dark-mode .post-content .kg-bookmark-container {
+    background: #222426;
+    border-color: #3b3d40
+}
+
+.dark-mode .post-content .kg-bookmark-content {
+    color: #909499
+ }
+
+.dark-mode .post-content .kg-bookmark-title {
+    color: #e1e3e6
+}
+
+.dark-mode .post-content .kg-bookmark-metadata {
+    color: #e1e3e6
+}
+
+.dark-mode .post-content .kg-bookmark-container {
+    flex-direction: column
+}
+
+.dark-mode .post-content .kg-bookmark-thumbnail {
+    order: 1;
+    width: 100%;
+    min-height: 160px
+}
+
+.dark-mode .post-content .kg-bookmark-thumbnail img {
+    border-radius: 3px 3px 0 0
+}
+
+.dark-mode .post-content .kg-bookmark-content {
+    order: 2
+}
+
+
+@keyframes fadein {
+    0% {
+        opacity: 0.2
+    }
+    100% {
+        opacity: 0.9
+    }
+}
+
+
+.dark-mode .avatar {
+        border-color: #3b3d40;
+        background: #3b3d40
+    }
+
+    .dark-mode .avatar:after,
+    .dark-mode .avatar:before {
+        background: #222426
+    }
+
+
+    .dark-mode .blog-header .blog-box {
+        border-color: #3b3d40
+    }
+
+
+
+    .dark-mode .blog-name {
+        color: #FFF
+    }
+
+
+    .dark-mode .blog-description {
+        color: #909499
+    }
+
+
+    .dark-mode .archive.archive-box {
+        border-color: #3b3d40
+    }
+
+
+
+    .dark-mode .archive .archive-title {
+        color: #FFF
+    }
+
+    .dark-mode .archive .archive-description {
+    display: block;
+    font-size: 2em;
+    line-height: 1.5em;
+    margin: 1rem 0;
+    font-family: 'Cardo', serif;
+    color: #909499
+}
+
+.dark-mode .archive .archive-description {
+        color: #909499
+    }
+
+.dark-mode .archive.archive-author {
+    padding-left: 0;
+    padding-right: 10rem
+}
+
+.dark-mode .archive.archive-author .archive-avatar {
+    left: auto;
+    right: 0;
+    top: 2rem;
+    width: 8rem;
+    height: 8rem
+}
+
+.dark-mode #search {
+    background: #222426
+}
+
+.dark-mode #search {
+    display: block;
+    transition: all ease-out 0.3s;
+    transform: translate3d(0, 100%, 0);
+    border-top: 1px solid #e1e3e6
+}
+
+@media only screen and (max-width: 640px) {
+    .dark-mode  #search {
+        border-color: #3b3d40
+    }
+}
+
+
+.dark-mode .search-active #search {
+    transform: translate3d(0, 0, 0)
+}
+
+.dark-mode .search input[type="text"] {
+    border-color: #3b3d40;
+    background: #222426
+}
+
+.dark-mode .search-close {
+    border-color: #909499
+}
+
+.dark-mode .search-close:after,
+.dark-mode .search-close:before {
+    background: #c4c7cc
+}
+
+.dark-mode .nav-close {
+    opacity: 0.4
+}
+
+.dark-mode .menu-active .nav-close {
+    display: block
+}
+
+.dark-mode .nav-header .nav-wrapper-control {
+    color: #909499
+}
+
+.dark-mode .nav-header .nav-wrapper-control a:focus,
+.dark-mode .nav-header .nav-wrapper-control a:hover {
+    color: #e1e3e6
+}
+
+
+.dark-mode .nav-header li.active a {
+    color: #e1e3e6
+}
+
+.dark-mode .nav-header li.active a {
+    color: #FFF
+}
+
+.dark-mode .nav-header li a:focus,
+.nav-header li a:hover {
+    color: #e1e3e6
+}
+
+.dark-mode .nav-footer li.active a {
+    color: #e1e3e6
+}
+
+.dark-mode .nav-footer li a:focus,
+.nav-footer li a:hover {
+    color: #e1e3e6
+}
+
+.dark-mode .nav-copy {
+    color: #909499
+}
+
+.dark-mode .nav-copy {
+    margin-bottom: 1rem
+}
+
+.dark-mode .nav-credits {
+    color: #909499
+}
+
+.dark-mode .container .post .post-box {
+    border-color: #3b3d40
+}
+
+.dark-mode .container #results .post .post-box {
+    border-color: #3b3d40
+}
+
+.dark-mode .post-title {
+    color: #FFF
+}
+
+.dark-mode .post-meta {
+    color: #909499
+}
+
+.dark-mode .post-header .post-meta:before {
+    background: #3b3d40
+}
+
+.dark-mode .post-header .post-meta .post-meta-author {
+    color: #e1e3e6
+}
+
+.dark-mode .post-share a:focus,
+.dark-mode .post-share a:hover {
+    background-color: #d13f21
+}
+
+.dark-mode .post-comments {
+    border-color: #3b3d40
+}
+
+.dark-mode .post-comments.activated {
+    background: #222426;
+    border-color: #3b3d40
+}
+
+.dark-mode .post-comments-activate {
+    border-color: #909499;
+    color: #c4c7cc
+}
+
+.dark-mode .post-nav {
+    border-color: #3b3d40
+}
+
+.dark-mode .post-nav:after {
+    background: #3b3d40
+}
+
+.dark-mode .post-nav:after {
+    display: none
+}
+
+.dark-mode .post-nav-next,
+.dark-mode .post-nav-prev {
+    display: block;
+    width: 100%
+}
+
+@media only screen and (max-width: 640px) {
+    .dark-mode .post-nav-teaser:after {
+        background: #3b3d40
+    }
+}
+
+.dark-mode .post-nav i {
+    color: #3b3d40
+}
+
+.dark-mode .post-nav-title {
+    color: #FFF
+}
+
+.dark-mode .pagination a {
+    border-color: #909499;
+    color: #c4c7cc
+}
+
+.dark-mode .paged .extra-pagination .pagination-box {
+    border-color: #3b3d40
+}

@@ -9,12 +9,14 @@
 	<meta name="HandheldFriendly" content="True" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+	<link rel="stylesheet" type="text/css" href="{{asset "css/members.css"}}" />
 	<link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset "css/dark.css"}}" />
 
 	{{ghost_head}}
 </head>
 
-<body class="{{body_class}}">
+<body class="{{body_class}}" id="main-body">
 
 	<div class="nav-header">
 		<nav class="nav-wrapper">
@@ -24,6 +26,17 @@
 				</span>
 				{{/if}}
 				{{navigation}}
+				{{#if @member}}
+					<ul>
+						{{!-- <li><a class="account-link" href="/account/">Account</a></li> --}}
+						<li><a class="small header-cta signout-link" href="#signout" data-members-signout>Log out</a></li>
+					</ul>
+				{{else}}
+					<ul class="members">
+						<li><a class="signin-link" href="/signin/">Log in</a></li>
+						<li><a class="signup-link" href="/signup/">Subscribe</a></li>
+					</ul>
+				{{/if}}
 				<ul class="nav-side">
 					{{#if @site.twitter}}
 					<li class="nav-twitter"><a title="Twitter" href="{{twitter_url}}" title="{{@site.twitter}}" target="_blank"><i class="icon icon-twitter"></i><span>Twitter</span></a></li>
@@ -51,6 +64,8 @@
 	<section class="page-wrapper">
 
 		{{{body}}}
+
+		<button class="float-button" type="button" name="dark_light" onclick="toggleDarkLight()" title="Toggle dark/light mode">🌛</button>
 
 		<div id="search" class="container">
 			<div class="content">
@@ -81,6 +96,92 @@
 		</div>
 
 	</section>
+
+
+
+    <script>
+        var images = document.querySelectorAll('.kg-gallery-image img');
+        images.forEach(function (image) {
+            var container = image.closest('.kg-gallery-image');
+            var width = image.attributes.width.value;
+            var height = image.attributes.height.value;
+            var ratio = width / height;
+            container.style.flex = ratio + ' 1 0%';
+        });
+    </script>
+
+
+ {{!-- jQuery + Fitvids, which makes all video embeds responsive --}}
+	<script
+		src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous">
+	</script>
+
+	<script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
+
+	<script src="{{asset "js/infinitescroll.js"}}"></script>
+
+
+	<script>
+		// {{!-- Scripts for Members subscription --}}
+
+		// Parse the URL parameter
+		function getParameterByName(name, url) {
+			if (!url) url = window.location.href;
+			name = name.replace(/[\[\]]/g, "\\$&");
+			var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+
+		// Give the parameter a variable name
+		var action = getParameterByName('action');
+		var stripe = getParameterByName('stripe');
+
+		$(document).ready(function () {
+			if (action == 'subscribe') {
+				$('body').addClass("subscribe-success");
+			}
+			if (action == 'signup') {
+				window.location = '{{@site.url}}/signup/?action=checkout';
+			}
+			if (action == 'checkout') {
+				$('body').addClass("signup-success");
+			}
+			if (action == 'signin') {
+				$('body').addClass("signin-success");
+			}
+			if (stripe == 'success') {
+				$('body').addClass("checkout-success");
+			}
+
+			$('.notification-close').click(function () {
+				$(this).parent().addClass('closed');
+				var uri = window.location.toString();
+				if (uri.indexOf("?") > 0) {
+					var clean_uri = uri.substring(0, uri.indexOf("?"));
+					window.history.replaceState({}, document.title, clean_uri);
+				}
+			});
+
+			// Reset form on opening subscrion overlay
+			$('.subscribe-button').click(function() {
+				$('.subscribe-overlay form').removeClass();
+				$('.subscribe-email').val('');
+			});
+		});
+
+	</script>	
+
+	<script>
+		function toggleDarkLight() {
+		var element = document.getElementById("main-body");
+		element.classList.toggle("dark-mode");
+		}
+	</script>
 
 	{{!-- Load basic scripts --}}
 	<script type="text/javascript" src="{{asset "js/script.js"}}"></script>

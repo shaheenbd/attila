@@ -1,0 +1,1056 @@
+/* Table of Contents
+/* ------------------------------------------------------------
+0. Variables
+1. Global Styles
+2. Members Subscribe Form
+3. Error Template
+4. Subscribe Overlay
+5. Members
+6. Dark Mode Toggle
+*/
+
+/* 0. Variables
+/* ---------------------------------------------------------- */
+
+:root {
+    /* Colours */
+    --blue: #3eb0ef;
+    --green: #a4d037;
+    --purple: #ad26b4;
+    --yellow: #fecd35;
+    --red: #f05230;
+    --darkgrey: #15171A;
+    --midgrey: #738a94;
+    --lightgrey: #c5d2d9;
+    --whitegrey: #e5eff5;
+    --pink: #fa3a57;
+    --brown: #a3821a;
+    --darkmode: color(var(--darkgrey) l(+2%));
+}
+
+/* 1. Global Styles
+/* ---------------------------------------------------------- */
+
+body {
+    background: #fff;
+}
+
+/* 
+    Float Button
+*/
+
+.float-button {
+    position: fixed;
+    right: 60px;
+    top: 100px;
+    transition: all 0.2s ease-in 0s;
+    z-index: 9999;
+    }
+
+    
+/* 2. Members Subscribe Form
+/* ---------------------------------------------------------- */
+.subscribe-form {
+    margin: 1.5em 0;
+    padding: 6.5vw 7vw 8vw;
+    border: color(var(--lightgrey) l(+10%)) 1px solid;
+    text-align: center;
+    background: linear-gradient(color(var(--whitegrey) l(+6%)), color(var(--whitegrey) l(+4%)));
+    border-radius: 3px;
+}
+
+.subscribe-form-title {
+    margin: 0 0 3px 0;
+    padding: 0;
+    color: var(--darkgrey);
+    font-size: 3.5rem;
+    line-height: 1;
+    font-weight: 600;
+}
+
+.subscribe-form-description {
+    margin-bottom: 0.2em 0 1em;
+    color: var(--midgrey);
+    font-size: 2.1rem;
+    line-height: 1.55em;
+}
+
+.subscribe-form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 460px;
+}
+
+.subscribe-form .form-group {
+    align-self: stretch;
+    display: flex;
+}
+
+.subscribe-email {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    border: color(var(--lightgrey) l(+7%)) 1px solid;
+    color: var(--midgrey);
+    font-size: 1.8rem;
+    line-height: 1em;
+    font-weight: normal;
+    user-select: text;
+    border-radius: 5px;
+    transition: border-color 0.15s linear;
+
+    -webkit-appearance: none;
+}
+
+.subscribe-email:focus {
+    outline: 0;
+    border-color: color(var(--lightgrey) l(-2%));
+}
+
+.subscribe-form button {
+    position: relative;
+    display: inline-block;
+    margin: 0 0 0 10px;
+    padding: 0 20px;
+    height: 43px;
+    outline: none;
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 39px;
+    font-weight: 400;
+    text-align: center;
+    background: linear-gradient(
+    color(var(--blue) whiteness(+7%)),
+    color(var(--blue) lightness(-7%) saturation(-10%)) 60%,
+    color(var(--blue) lightness(-7%) saturation(-10%)) 90%,
+    color(var(--blue) lightness(-4%) saturation(-10%))
+    );
+    border-radius: 5px;
+
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.subscribe-form button:active,
+.subscribe-form button:focus {
+    background: color(var(--blue) lightness(-9%) saturation(-10%));
+}
+
+.subscribe-form .button-loader,
+.subscribe-form .message-success,
+.subscribe-form .message-error {
+    display: none;
+}
+
+.subscribe-form .loading .button-content {
+    visibility: hidden;
+}
+
+.subscribe-form .loading .button-loader {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: inline-block;
+    margin-left: -19px;
+    transform: scale(0.7);
+}
+
+.subscribe-form .button-loader svg path,
+.subscribe-form .button-loader svg rect {
+    fill: #fff;
+}
+
+.subscribe-form .success .message-success,
+.subscribe-form .invalid .message-error,
+.subscribe-form .error .message-error {
+    margin: 1em auto 0;
+    max-width: 400px;
+    color: var(--red);
+    font-size: 1.6rem;
+    line-height: 1.5em;
+    text-align: center;
+}
+
+.subscribe-form .success .message-success {
+    display: block;
+    color: color(var(--green) l(-5%));
+}
+
+.subscribe-form .invalid .message-error,
+.subscribe-form .error .message-error {
+    display: block;
+}
+
+
+@media (max-width: 650px) {
+    .subscribe-form-title {
+        font-size: 2.4rem;
+    }
+
+    .subscribe-form-description {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .subscribe-form form {
+        flex-direction: column;
+    }
+
+    .subscribe-form .form-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .subscribe-form button {
+        margin: 10px 0 0 0;
+        width: 100%;
+    }
+}
+
+
+/* 3. Error Template
+/* ---------------------------------------------------------- */
+
+.error-content {
+    padding: 14vw 4vw 6vw;
+}
+
+.site-nav-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.site-nav-center .site-nav-logo {
+    margin-right: 0;
+}
+
+.error-message {
+    padding-bottom: 10vw;
+    border-bottom: 1px solid color(var(--lightgrey) l(+10%));
+    text-align: center;
+}
+
+.error-code {
+    margin: 0;
+    color: var(--lightgrey);
+    font-size: 12vw;
+    line-height: 1em;
+    letter-spacing: -5px;
+    opacity: 0.75;
+}
+
+.error-description {
+    margin: 0;
+    color: var(--midgrey);
+    font-size: 3rem;
+    line-height: 1.3em;
+    font-weight: 400;
+}
+
+.error-link {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+@media (min-width: 940px) {
+    .error-content .post-card {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .error-content {
+        padding-top: 24vw;
+    }
+    .error-code {
+        font-size: 11.2rem;
+    }
+    .error-message {
+        padding-bottom: 16vw;
+    }
+    .error-description {
+        margin: 5px 0 0 0;
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .error-content {
+        padding-top: 28vw;
+    }
+    .error-message {
+        padding-bottom: 14vw;
+    }
+}
+
+
+/* 4. Subscribe Message and Overlay
+/* ---------------------------------------------------------- */
+
+.notification {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 9000;
+    padding: 20px 60px;
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 1.3em;
+    font-weight: 500;
+    text-align: center;
+    background: color(var(--green) l(-5%));
+    transition: all 0.35s cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
+    transform: translateY(-175%);
+    visibility: hidden;
+}
+
+.subscribe-success .notification-subscribe {
+    visibility: visible;
+    transform: translateY(0);
+}
+.signup-success .notification-signup {
+    visibility: visible;
+    transform: translateY(0);
+}
+.signin-success .notification-signin {
+    visibility: visible;
+    transform: translateY(0);
+}
+.checkout-success .notification-checkout {
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.notification.closed {
+    visibility: hidden;
+    transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+    transform: translateY(-175%);
+}
+
+.notification-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+}
+
+.notification-close:before {
+    content: "";
+    position: absolute;
+    top: 29px;
+    right: 25px;
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transform: rotate(45deg);
+}
+
+.notification-close:after {
+    content: "";
+    position: absolute;
+    top: 29px;
+    right: 25px;
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transform: rotate(-45deg);
+}
+
+
+.subscribe-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(9,10,11,0.97);
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+    pointer-events: none;
+
+    backdrop-filter: blur(3px);
+}
+
+.subscribe-overlay .subscribe-close:before,
+.subscribe-overlay .subscribe-close:after {
+    top: 36px;
+    width: 30px;
+}
+
+.subscribe-overlay:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.subscribe-overlay-content {
+    position: relative;
+    z-index: 9999;
+    margin: 0 0 5vw 0;
+    padding: 4vw;
+    color: #fff;
+    text-align: center;
+}
+
+.subscribe-overlay .subscribe-form {
+    border: none;
+    color: #fff;
+    background: none;
+}
+
+.subscribe-overlay-logo {
+    position: fixed;
+    top: 23px;
+    left: 30px;
+    height: 30px;
+}
+
+.subscribe-overlay-title {
+    display: inline-block;
+    margin: 0 0 10px 0;
+    font-size: 5.2rem;
+    line-height: 1.15em;
+}
+
+.subscribe-overlay-description {
+    margin: 0 auto 50px;
+    max-width: 650px;
+    color: #fff;
+    font-family: Georgia, serif;
+    font-size: 2.4rem;
+    line-height: 1.3em;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+.subscribe-overlay form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 540px;
+}
+
+.subscribe-overlay .form-group {
+    flex-grow: 1;
+}
+
+.subscribe-overlay .subscribe-email {
+    display: block;
+    padding: 14px 20px;
+    width: 100%;
+    border: none;
+    color: var(--midgrey);
+    font-size: 2rem;
+    line-height: 1em;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    user-select: text;
+    border-radius: 8px;
+    transition: border-color 0.15s linear;
+
+    -webkit-appearance: none;
+}
+
+.subscribe-email:focus {
+    outline: 0;
+    border-color: color(var(--lightgrey) l(-2%));
+}
+
+.subscribe-overlay button {
+    display: inline-block;
+    margin: 0 0 0 15px;
+    padding: 0 25px;
+    height: 52px;
+    outline: none;
+    color: #fff;
+    font-size: 1.7rem;
+    line-height: 38px;
+    font-weight: 400;
+    text-align: center;
+    background: linear-gradient(
+    color(var(--blue) whiteness(+7%)),
+    color(var(--blue) lightness(-7%) saturation(-10%)) 60%,
+    color(var(--blue) lightness(-7%) saturation(-10%)) 90%,
+    color(var(--blue) lightness(-4%) saturation(-10%))
+    );
+    border-radius: 8px;
+
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.subscribe-overlay button:active,
+.subscribe-overlay button:focus {
+    background: color(var(--blue) lightness(-9%) saturation(-10%));
+}
+
+.subscribe-overlay .loading .button-loader {
+    top: 5px;
+}
+
+
+/* 5. Members
+/* ---------------------------------------------------------- */
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="search"],
+input[type="url"],
+select {
+    height: 44px;
+    background: #fff;
+    border-radius: 5px;
+    border: none;
+    border: solid 1px var(--lightgrey);
+    color: inherit;
+    display: block;
+    outline: 0;
+    padding: 0 0.6em;
+    text-decoration: none;
+    width: 100%;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="search"]:focus,
+input[type="url"]:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--blue);
+}
+
+.button {
+    display: inline-block;
+    height: 44px;
+    padding: 0 1.8rem;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 42px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    appearance: none;
+    transition: 0.4s ease;
+}
+
+.button.fit {
+    width: 100%;
+}
+
+.button.small {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 1.1rem;
+    font-size: 1.4rem;
+}
+
+.button.large {
+    height: calc(44px * 1.14);
+    line-height: calc(44px * 1.14);
+    padding: 0 3rem;
+    font-size: 1.6rem;
+}
+
+.button.disabled,
+.button:disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.button {
+    color: var(--blue);
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px var(--blue);
+}
+
+.button:hover {
+    text-decoration: none;
+    color: color(var(--blue) l(-15%));
+    box-shadow: inset 0 0 0 1px color(var(--blue) l(-10%));
+    transition: 0.2s ease;
+}
+
+.button.primary {
+    color: #fff;
+    background-color: var(--blue);
+    box-shadow: none;
+}
+
+/* .button.primary:hover {
+    background-color: color(var(--blue) l(-10%));
+} */
+
+.site-signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 10vw;
+    text-align: center;
+}
+
+.signup-title {
+    margin: 0 0 0.1em;
+    font-size: 4.2rem;
+}
+
+.signup-form p {
+    color: var(--midgrey);
+    font-size: 1.3em;
+}
+
+.signup-form p small {
+    display: inline-block;
+    margin: 15px 0 0 0;
+    font-size: 1.4rem;
+}
+
+.signup-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.signup-box .button {
+    margin-left: 10px;
+}
+
+@media (max-width: 600px) {
+    .signup-box {
+        flex-direction: column;
+    }
+    .signup-box .button {
+        width: 100%;
+        margin: 15px 0 0 0;
+    }
+}
+
+.site-signin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.signin-form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 10vw;
+    text-align: center;
+}
+
+.signin-title {
+    margin: 0 0 0.1em;
+    font-size: 4.2rem;
+}
+
+.signin-form p {
+    color: var(--midgrey);
+    font-size: 1.3em;
+}
+
+.signin-form p small {
+    display: inline-block;
+    margin: 15px 0 0 0;
+    font-size: 1.4rem;
+}
+
+.signin-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.signin-box .button {
+    margin-left: 10px;
+}
+
+@media (max-width: 600px) {
+    .signin-box {
+        flex-direction: column;
+    }
+    .signin-box .button {
+        width: 100%;
+        margin: 15px 0 0 0;
+    }
+}
+
+.checkout-form {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 10vw;
+    text-align: center;
+}
+
+.checkout-title {
+    margin: 0 auto 10px;
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+}
+
+.checkout-form p {
+    max-width: 500px;
+    margin: 0 auto 60px;
+    color: var(--midgrey);
+    font-size: 1.3em;
+}
+
+.checkout-box {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.checkout-plan {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-top: var(--blue) 6px solid;
+    text-align: left;
+    border-radius: 10px;
+    color: color(var(--midgrey) l(-30%));
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(39,44,49,.03), 0 0 3px rgba(39,44,49,.05), 0 5px 22px -10px rgba(39,44,49,.12), 0 25px 30px -25px rgba(39,44,49,.05);
+}
+
+.checkout-plan + .checkout-plan {
+    margin-left: 30px;
+}
+
+.checkout-plan-header {
+    position: relative;
+    padding: 0 0 50px;
+    color: var(--midgrey);
+    text-align: center;
+}
+
+.checkout-plan-header:after {
+    content: "";
+    display: block;
+    height: 2px;
+    position: absolute;
+    bottom: 25px;
+    left: 30%;
+    right: 30%;
+    background: rgba(39,44,49,.08);
+    border-radius: 2px;
+}
+
+.checkout-plan-header h3 {
+    margin: 0 0 25px 0;
+    color: var(--darkgrey);
+    font-size: 1.8rem;
+    line-height: 1.15em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.checkout-plan-header span {
+    font-size: 2.6rem;
+    font-weight: 300;
+}
+
+.checkout-plan-header strong {
+    color: var(--darkgrey);
+    font-size: 4.5rem;
+    font-weight: 500;
+}
+
+.checkout-plan-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.checkout-plan-content ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.checkout-plan-content li {
+    position: relative;
+    margin: 0;
+    padding: 0 0 15px 20px;
+    line-height: 1.4em;
+}
+
+.checkout-plan-content li:before {
+    display: block;
+    position: absolute;
+    left: 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: color(var(--green) l(-5%));
+    content: "✓";
+}
+
+.checkout-plan-content .button {
+    margin: 20px 0 0 0;
+}
+
+@media (max-width: 740px) {
+    .checkout-title {
+        margin-top: 50px;
+    }
+    .checkout-box {
+        flex-direction: column;
+    }
+    .checkout-plan + .checkout-plan {
+        margin: 5vw 0 0 0;
+    }
+}
+
+form[data-members-form] .button-loader,
+form[data-members-form] .message-success,
+form[data-members-form] .message-error {
+    display: none;
+}
+
+.message-success svg,
+.message-error svg {
+    position: relative;
+    top: -1px;
+    margin-right: 5px;
+    height: 15px;
+    width: 15px;
+}
+.message-success svg {
+    fill: #fff;
+}
+.message-error svg {
+    fill: var(--red);
+}
+
+form[data-members-form].success .message-success,
+form[data-members-form].error .message-error {
+    position: fixed;
+    top: 84px;
+    left: 20px;
+    right: 20px;
+    z-index: 9999;
+    margin: 0 auto;
+    padding: 10px 0;
+    color: #fff;
+    font-size: 1.4rem;
+    line-height: 1.5em;
+    font-weight: 500;
+    text-align: center;
+    background: color(var(--green) l(-5%));
+    border-radius: 5px;
+}
+form[data-members-form].success .message-success {
+    background: color(var(--green) l(-5%));
+    color: #28a745;
+    box-shadow: var(--green) 0 0 0 1px;
+}
+form[data-members-form].error .message-error {
+    color: var(--red);
+    background: #fff;
+    box-shadow: var(--red) 0 0 0 1px;
+}
+
+form[data-members-form] .button {
+    position: relative;
+}
+
+/*-- Loading --*/
+
+/* Hide button text */
+form[data-members-form].loading .button-content {
+    visibility: hidden;
+}
+
+/* Show loading spinner */
+form[data-members-form].loading .button-loader {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    height: 31px;
+    margin-left: -19px;
+    transform: scale(0.7);
+}
+
+.button-loader svg path,
+.button-loader svg rect{
+  fill: #fff;
+}
+
+/*-- Show success message on success --*/
+form[data-members-form].success .message-success {
+    display: block;
+}
+
+/*-- Show error message on error --*/
+form[data-members-form].error .message-error {
+    display: block;
+}
+
+.site-account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5vw;
+    z-index: 1;
+}
+
+.subscriber-box {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.subscriber-box-title {
+    font-size: 3.4rem;
+}
+
+.subscriber-box p {
+    line-height: 1.5em;
+}
+
+.subscription {
+    padding: 20px 0 40px;
+    border-top: 1px solid color(var(--lightgrey) l(+10%));
+}
+
+.subscription-expiration-warning {
+    color: var(--red);
+}
+
+.subscriber-details {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.subscriber-detail {
+    flex: 1 0 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 0 0;
+    margin: 0 0 30px;
+}
+
+.subscriber-detail-label {
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.gh-subscription-cancel {
+    display: inline-block;
+    height: 44px;
+    padding: 0 1.8rem;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 42px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    color: var(--blue);
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px var(--blue);
+    appearance: none;
+    transition: 0.4s ease;
+}
+
+.gh-subscription-cancel:hover {
+    text-decoration: none;
+    color: color(var(--blue) l(-15%));
+    box-shadow: inset 0 0 0 1px color(var(--blue) l(-10%));
+    transition: 0.2s ease;
+}
+
+.gh-subscription-cancel[data-members-continue-subscription] {
+    color: #fff;
+    background-color: var(--blue);
+    box-shadow: none;
+}
+
+.gh-subscription-cancel[data-members-continue-subscription]:hover {
+    background-color: color(var(--blue) l(-10%));
+}
+
+.gh-error-subscription-cancel {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.5rem;
+    color: var(--red);
+}
+
+.account-box {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.account-box-title {
+    font-size: 3.4rem;
+}
+
+@media (max-width: 600px) {
+    .subscriber-details {
+        flex-direction: column;
+    }
+}
+
+/* Sign-up Sign-in page margin & menu*/
+
+.site-signup, 
+.site-signin {
+    margin-top: 250px;
+}
+@media (max-width: 650px) {
+    .site-signup, 
+    .site-signin {
+        margin-top: 120px;
+    }
+}
+
+.signup-title, 
+.signin-title{
+    line-height: 1em;
+}
+
+@media (min-width: 641px) {
+    .nav-header ul.members {
+        margin: 0 30px;
+    }
+}

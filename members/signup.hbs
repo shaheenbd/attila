@@ -1,0 +1,41 @@
+{{!< ../default}}
+
+<main id="site-main" class="site-main site-signup outer">
+    <div class="inner">
+        
+
+    {{#if @member.paid}}
+
+        {{!-- Logged in, paying member: Redirect home --}}
+        <script>window.location = '{{@site.url}}';</script>
+
+    {{else if @member}}
+
+        {{!-- Logged in, not paying: Check out --}}
+        <div class="checkout-form">
+            <h1 class="checkout-title">Congratulations!</h1>
+            <p>You have successfully subscribed to {{@site.title}}</p>
+        </div>
+
+    {{else}}
+
+        {{!-- Not logged in: Sign up --}}
+        <form class="signup-form" data-members-form="signup">
+            <h1 class="signup-title">Signup to {{@site.title}}</h1>
+            <p>{{@site.description}}</p>
+            <div class="signup-box">
+                <input data-members-email type="email" placeholder="Type your email..." required="true" autocomplete="false" />
+                <button class="button primary" type="submit">
+                    <span class="button-content">Continue</span>
+                    <span class="button-loader">{{> "icons/loader"}}</span>
+                </button>
+            </div>
+            <p><small>Already have an account? <a href="/signin/">Sign in</a></small></p>
+            <div class="message-success"><strong>Great!</strong> Check your inbox and click the link to confirm your subscription</div>
+            <div class="message-error">Please enter a valid email address!</div>
+        </form>
+
+    {{/if}}
+
+    </div>
+</main>
