@@ -42,6 +42,9 @@ If you like this theme and want to support future development you can become a [
 * __Swedish__ by [martenj77](https://github.com/martenj77)
 * __Czech__ by [lunakv](https://github.com/lunakv)
 
+## Setup Membership
+Upload routes.yaml as a Routes file from Labs -> BETA FEATURES -> Routes
+
 ## Setup [Disqus](https://disqus.com/)
 
 1. Go to __Code injection__.  
